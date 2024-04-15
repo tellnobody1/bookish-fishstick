@@ -6,11 +6,11 @@ import zio.*, Console.*
 
 object App extends ZIOAppDefault:
   def run =
-    val io: ZIO[AppService, Err, Unit] =
+    val io: ZIO[AppService, Err, ExitCode] =
       for
         ipAddress <- publicIpAddress
         _ <- printLine(ipAddress).orDie
-      yield ()
+      yield ExitCode.success
     io.provide(
       appservice.layer
     , httpclient.layer

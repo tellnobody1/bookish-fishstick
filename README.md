@@ -1,16 +1,24 @@
 # bookish-fishstick
 
-## build, test, run
+## build, test, integration spec
 
 ```sh
 sbt compile
 sbt test
-sbt run
+sbt it/test
 ```
 
-## docker
+## run
+
+### docker
 
 ```sh
 sbt docker
-docker run HASH
+docker run cli/cli
+```
+
+### sbt
+
+```sh
+sbt run
 ```
